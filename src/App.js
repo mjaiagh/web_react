@@ -1,4 +1,7 @@
+import React from 'react';
 import { useState } from "react";
+import "milligram";
+
 
 const movies = [
   {title: "Wall-E"},
