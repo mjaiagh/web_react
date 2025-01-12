@@ -1,21 +1,46 @@
 import React from 'react';
+
 import { useState } from "react";
 import "milligram";
 
 
-const movies = [
-  {title: "Wall-E"},
-  {title: "Pulp Fiction"},
-  {title: "Matrix"},
-  {title: "1670"},
+
+const movies_init = [
+  { title: "Wall-E" },
+  { title: "Pulp Fiction" },
+  { title: "Matrix" },
+  { title: "1670" },
 ];
 
 function App() {
-  const [title, setTitle] = useState('Wall-E');
+  const [title, setTitle] = useState('Podaj tytuł filmu');
+  const [year, setYear] = useState('Podaj rok');
+  const [movies, setMovies] = useState(movies_init);
 
-  function handleChange(event) {
+
+  function clearYear(event) {
+    setYear('');
+  }
+
+  function clearTitle(event) {
+    setTitle('');
+  }
+
+  function handleChangeTitle(event) {
     setTitle(event.target.value);
   }
+
+  function handleChangeYear(event) {
+    setYear(event.target.value);
+  }
+
+  function handleMovieAdd() {
+    setMovies([...movies, {title: title}]);
+  }
+
+
+
+
 
   let message;
   if (title.length < 5) {
@@ -29,11 +54,14 @@ function App() {
 
   return (
     <div>
-      <h1>My favourite movies to watch</h1>
       <h2>My favourite movie for today is {title}</h2>
-      <input type="text" value={title} onChange={handleChange} />
+      <input type="text" value={title} onChange={handleChangeTitle} onClick={clearTitle} title='Tytuł' />
+      <input type="text" value={year} onChange={handleChangeYear} onClick={clearYear} title='Tytuł' />
+
+
       <div>{message}</div>
-      <button type="button" onClick={() => alert(title)}>
+
+      <button type="button" onClick={handleMovieAdd}>
         Pokaż tytuł filmu
       </button>
       <ul>
@@ -41,7 +69,7 @@ function App() {
           <li key={movie.title}>{movie.title}</li>
         ))}
       </ul>
-      
+
     </div>
 
   );

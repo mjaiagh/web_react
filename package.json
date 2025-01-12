@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^13.5.0",
     "milligram": "^1.4.1",
     "nvm": "^0.0.4",
-    "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4"
