@@ -1,5 +1,12 @@
 import { useState } from "react";
 
+const movies = [
+  {title: "Wall-E"},
+  {title: "Pulp Fiction"},
+  {title: "Matrix"},
+  {title: "1670"},
+];
+
 function App() {
   const [title, setTitle] = useState('Wall-E');
 
@@ -23,7 +30,17 @@ function App() {
       <h2>My favourite movie for today is {title}</h2>
       <input type="text" value={title} onChange={handleChange} />
       <div>{message}</div>
+      <button type="button" onClick={() => alert(title)}>
+        Pokaż tytuł filmu
+      </button>
+      <ul>
+        {movies.map((movie) => (
+          <li key={movie.title}>{movie.title}</li>
+        ))}
+      </ul>
+      
     </div>
+
   );
 }
 
